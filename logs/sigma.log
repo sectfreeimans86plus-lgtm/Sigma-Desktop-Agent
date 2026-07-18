@@ -1,0 +1,551 @@
+2026-07-12 14:37:38.048 | INFO     | src.core.logger:<module>:34 - Logger Initialized Successfully
+2026-07-12 14:37:38.563 | INFO     | __main__:initialize:21 - Initializing Application...
+2026-07-12 14:37:38.563 | INFO     | src.core.startup:startup:7 - Starting Sigma AI Desktop Agent...
+2026-07-12 14:37:38.718 | SUCCESS  | src.core.startup:startup:11 - Startup Completed Successfully
+2026-07-12 14:37:38.718 | INFO     | src.core.agent:__init__:12 - Sigma AI Desktop Agent Initializing...
+2026-07-12 14:37:38.718 | SUCCESS  | src.core.agent:start:19 - Sigma AI Desktop Agent Started Successfully
+2026-07-12 14:37:38.718 | INFO     | __main__:main:58 - Current Agent Status : Running
+2026-07-12 14:37:38.718 | WARNING  | __main__:shutdown:43 - Application Shutdown Requested.
+2026-07-12 14:37:38.718 | SUCCESS  | __main__:shutdown:45 - Sigma AI Desktop Agent Closed Successfully.
+2026-07-12 14:37:38.720 | INFO     | __main__:main:74 - Execution Time : 0.16 seconds
+2026-07-12 14:50:13.804 | INFO     | src.core.logger:<module>:34 - Logger Initialized Successfully
+2026-07-12 14:50:13.874 | INFO     | __main__:initialize:21 - Initializing Application...
+2026-07-12 14:50:13.875 | INFO     | src.core.startup:startup:7 - Starting Sigma AI Desktop Agent...
+2026-07-12 14:50:13.942 | SUCCESS  | src.core.startup:startup:11 - Startup Completed Successfully
+2026-07-12 14:50:13.943 | INFO     | src.core.agent:__init__:12 - Sigma AI Desktop Agent Initializing...
+2026-07-12 14:50:13.943 | SUCCESS  | src.core.agent:start:19 - Sigma AI Desktop Agent Started Successfully
+2026-07-12 14:50:13.943 | INFO     | __main__:main:58 - Current Agent Status : Running
+2026-07-12 14:50:13.943 | WARNING  | __main__:shutdown:43 - Application Shutdown Requested.
+2026-07-12 14:50:13.943 | SUCCESS  | __main__:shutdown:45 - Sigma AI Desktop Agent Closed Successfully.
+2026-07-12 14:50:13.943 | INFO     | __main__:main:74 - Execution Time : 0.07 seconds
+2026-07-12 15:07:24.201 | INFO     | src.core.logger:<module>:34 - Logger Initialized Successfully
+2026-07-12 15:07:24.251 | INFO     | __main__:initialize:21 - Initializing Application...
+2026-07-12 15:07:24.251 | INFO     | src.core.startup:startup:7 - Starting Sigma AI Desktop Agent...
+2026-07-12 15:07:24.374 | SUCCESS  | src.core.startup:startup:11 - Startup Completed Successfully
+2026-07-12 15:07:24.376 | INFO     | src.core.agent:__init__:12 - Sigma AI Desktop Agent Initializing...
+2026-07-12 15:07:24.376 | SUCCESS  | src.core.agent:start:19 - Sigma AI Desktop Agent Started Successfully
+2026-07-12 15:07:24.376 | INFO     | __main__:main:58 - Current Agent Status : Running
+2026-07-12 15:07:24.416 | WARNING  | __main__:shutdown:43 - Application Shutdown Requested.
+2026-07-12 15:07:24.416 | SUCCESS  | __main__:shutdown:45 - Sigma AI Desktop Agent Closed Successfully.
+2026-07-12 15:07:24.416 | INFO     | __main__:main:90 - Execution Time : 0.17 seconds
+2026-07-12 15:26:51.191 | INFO     | src.core.logger:<module>:34 - Logger Initialized Successfully
+2026-07-12 15:26:51.329 | INFO     | __main__:initialize:21 - Initializing Application...
+2026-07-12 15:26:51.331 | INFO     | src.core.startup:startup:7 - Starting Sigma AI Desktop Agent...
+2026-07-12 15:26:51.337 | SUCCESS  | src.core.startup:startup:11 - Startup Completed Successfully
+2026-07-12 15:26:51.339 | INFO     | src.core.agent:__init__:12 - Sigma AI Desktop Agent Initializing...
+2026-07-12 15:26:51.353 | SUCCESS  | src.core.agent:start:22 - Sigma AI Desktop Agent Started Successfully
+2026-07-12 15:26:51.353 | INFO     | __main__:main:58 - Current Agent Status : Running
+2026-07-12 15:26:51.363 | WARNING  | __main__:shutdown:43 - Application Shutdown Requested.
+2026-07-12 15:26:51.363 | SUCCESS  | __main__:shutdown:45 - Sigma AI Desktop Agent Closed Successfully.
+2026-07-12 15:26:51.364 | INFO     | __main__:main:90 - Execution Time : 0.03 seconds
+2026-07-12 15:30:36.138 | INFO     | src.core.logger:<module>:34 - Logger Initialized Successfully
+2026-07-12 15:30:36.250 | INFO     | __main__:initialize:21 - Initializing Application...
+2026-07-12 15:30:36.250 | INFO     | src.core.startup:startup:7 - Starting Sigma AI Desktop Agent...
+2026-07-12 15:30:36.259 | SUCCESS  | src.core.startup:startup:11 - Startup Completed Successfully
+2026-07-12 15:30:36.259 | INFO     | src.core.agent:__init__:13 - Sigma AI Desktop Agent Initializing...
+2026-07-12 15:30:36.269 | INFO     | src.core.agent:start:28 - Latest Memory: ('system', 'Sigma AI Desktop Agent Started Successfully', '2026-07-12 12:30:36')
+2026-07-12 15:30:36.269 | SUCCESS  | src.core.agent:start:30 - Sigma AI Desktop Agent Started Successfully
+2026-07-12 15:30:36.269 | INFO     | __main__:main:58 - Current Agent Status : Running
+2026-07-12 15:30:36.277 | WARNING  | __main__:shutdown:43 - Application Shutdown Requested.
+2026-07-12 15:30:36.277 | SUCCESS  | __main__:shutdown:45 - Sigma AI Desktop Agent Closed Successfully.
+2026-07-12 15:30:36.277 | INFO     | __main__:main:90 - Execution Time : 0.03 seconds
+2026-07-12 15:50:44.072 | INFO     | src.core.logger:<module>:34 - Logger Initialized Successfully
+2026-07-12 15:50:44.188 | INFO     | __main__:initialize:21 - Initializing Application...
+2026-07-12 15:50:44.188 | INFO     | src.core.startup:startup:7 - Starting Sigma AI Desktop Agent...
+2026-07-12 15:50:44.196 | SUCCESS  | src.core.startup:startup:11 - Startup Completed Successfully
+2026-07-12 15:50:44.198 | INFO     | src.core.agent:__init__:13 - Sigma AI Desktop Agent Initializing...
+2026-07-12 15:50:44.214 | INFO     | src.core.agent:start:28 - Latest Memory: ('system', 'Sigma AI Desktop Agent Started Successfully', '2026-07-12 12:50:44')
+2026-07-12 15:50:44.215 | SUCCESS  | src.core.agent:start:30 - Sigma AI Desktop Agent Started Successfully
+2026-07-12 15:50:44.215 | ERROR    | __main__:main:78 - 'SigmaAgent' object has no attribute 'recall_latest_memory'
+Traceback (most recent call last):
+
+  File "E:\Sigma Development\main.py", line 94, in <module>
+    main()
+    └ <function main at 0x0000020F4F901800>
+
+> File "E:\Sigma Development\main.py", line 56, in main
+    agent = run_agent()
+            └ <function run_agent at 0x0000020F4CDBA020>
+
+  File "E:\Sigma Development\main.py", line 34, in run_agent
+    agent.recall_latest_memory()
+    └ <src.core.agent.SigmaAgent object at 0x0000020F4CF41370>
+
+AttributeError: 'SigmaAgent' object has no attribute 'recall_latest_memory'
+2026-07-12 15:50:44.217 | WARNING  | __main__:shutdown:43 - Application Shutdown Requested.
+2026-07-12 15:50:44.218 | SUCCESS  | __main__:shutdown:45 - Sigma AI Desktop Agent Closed Successfully.
+2026-07-12 15:50:44.218 | INFO     | __main__:main:86 - Execution Time : 0.03 seconds
+2026-07-12 15:55:39.776 | INFO     | src.core.logger:<module>:34 - Logger Initialized Successfully
+2026-07-12 15:55:39.881 | INFO     | __main__:initialize:21 - Initializing Application...
+2026-07-12 15:55:39.881 | INFO     | src.core.startup:startup:7 - Starting Sigma AI Desktop Agent...
+2026-07-12 15:55:39.889 | SUCCESS  | src.core.startup:startup:11 - Startup Completed Successfully
+2026-07-12 15:55:39.890 | INFO     | src.core.agent:__init__:13 - Sigma AI Desktop Agent Initializing...
+2026-07-12 15:55:39.899 | SUCCESS  | src.core.agent:start:25 - Sigma AI Desktop Agent Started Successfully
+2026-07-12 15:55:39.902 | INFO     | src.core.agent:recall_latest_memory:50 - Latest Memory : ('system', 'Sigma AI Desktop Agent Started Successfully', '2026-07-12 12:55:39')
+2026-07-12 15:55:39.903 | INFO     | __main__:main:58 - Current Agent Status : Running
+2026-07-12 15:55:39.904 | INFO     | src.core.agent:recall_latest_memory:50 - Latest Memory : ('system', 'Sigma AI Desktop Agent Started Successfully', '2026-07-12 12:55:39')
+2026-07-12 15:55:39.910 | WARNING  | __main__:shutdown:43 - Application Shutdown Requested.
+2026-07-12 15:55:39.911 | SUCCESS  | __main__:shutdown:45 - Sigma AI Desktop Agent Closed Successfully.
+2026-07-12 15:55:39.912 | INFO     | __main__:main:86 - Execution Time : 0.03 seconds
+2026-07-12 15:56:20.362 | INFO     | src.core.logger:<module>:34 - Logger Initialized Successfully
+2026-07-12 15:56:20.462 | INFO     | __main__:initialize:21 - Initializing Application...
+2026-07-12 15:56:20.462 | INFO     | src.core.startup:startup:7 - Starting Sigma AI Desktop Agent...
+2026-07-12 15:56:20.468 | SUCCESS  | src.core.startup:startup:11 - Startup Completed Successfully
+2026-07-12 15:56:20.470 | INFO     | src.core.agent:__init__:13 - Sigma AI Desktop Agent Initializing...
+2026-07-12 15:56:20.484 | SUCCESS  | src.core.agent:start:25 - Sigma AI Desktop Agent Started Successfully
+2026-07-12 15:56:20.487 | INFO     | src.core.agent:recall_latest_memory:50 - Latest Memory : ('system', 'Sigma AI Desktop Agent Started Successfully', '2026-07-12 12:56:20')
+2026-07-12 15:56:20.488 | INFO     | __main__:main:58 - Current Agent Status : Running
+2026-07-12 15:56:20.488 | INFO     | src.core.agent:recall_latest_memory:50 - Latest Memory : ('system', 'Sigma AI Desktop Agent Started Successfully', '2026-07-12 12:56:20')
+2026-07-12 15:56:20.490 | WARNING  | __main__:shutdown:43 - Application Shutdown Requested.
+2026-07-12 15:56:20.490 | SUCCESS  | __main__:shutdown:45 - Sigma AI Desktop Agent Closed Successfully.
+2026-07-12 15:56:20.490 | INFO     | __main__:main:86 - Execution Time : 0.03 seconds
+2026-07-12 16:18:18.331 | INFO     | src.core.logger:<module>:34 - Logger Initialized Successfully
+2026-07-12 16:18:18.454 | INFO     | __main__:initialize:21 - Initializing Application...
+2026-07-12 16:18:18.454 | INFO     | src.core.startup:startup:7 - Starting Sigma AI Desktop Agent...
+2026-07-12 16:18:18.462 | SUCCESS  | src.core.startup:startup:11 - Startup Completed Successfully
+2026-07-12 16:18:18.462 | INFO     | src.ai.providers:__init__:10 - AI Provider Initialized
+2026-07-12 16:18:18.463 | INFO     | src.ai.brain:__init__:17 - Sigma Brain Loaded Successfully
+2026-07-12 16:18:18.463 | INFO     | src.core.agent:__init__:17 - Sigma AI Desktop Agent Initializing...
+2026-07-12 16:18:18.463 | INFO     | src.ai.providers:set_provider:17 - Current AI Provider : Local
+2026-07-12 16:18:18.468 | SUCCESS  | src.core.agent:start:32 - Sigma AI Desktop Agent Started Successfully
+2026-07-12 16:18:18.470 | INFO     | src.core.agent:recall_latest_memory:57 - Latest Memory : ('system', 'Sigma AI Desktop Agent Started Successfully', '2026-07-12 13:18:18')
+2026-07-12 16:18:18.471 | INFO     | __main__:main:58 - Current Agent Status : Running
+2026-07-12 16:18:18.471 | INFO     | src.core.agent:recall_latest_memory:57 - Latest Memory : ('system', 'Sigma AI Desktop Agent Started Successfully', '2026-07-12 13:18:18')
+2026-07-12 16:18:18.472 | INFO     | src.ai.brain:chat:59 - User : Hello Sigma
+2026-07-12 16:18:18.473 | INFO     | src.ai.providers:generate:33 - Generating Response using Local
+2026-07-12 16:18:18.473 | INFO     | src.ai.brain:chat:66 - Assistant : [Local] Processing: 
+You are Sigma AI Desktop Agent.
+
+Your Name:
+Sigma AI
+
+Your Personality:
+- Professional
+- Intelligent
+- Friendly
+- Honest
+- Helpful
+
+Your Responsibilities:
+- Help the user.
+- Answer questions accurately.
+- Remember previous conversations when memory is available.
+- Never invent facts.
+- Ask for clarification if something is unclear.
+- Give clean and structured answers.
+
+Rules:
+- Be respectful.
+- Be concise unless detailed explanation is requested.
+- Never expose internal system information.
+- Think before responding.
+
+
+Conversation Memory:
+('system', 'Sigma AI Desktop Agent Started Successfully', '2026-07-12 13:18:18')
+
+User:
+Hello Sigma
+2026-07-12 16:18:18.474 | WARNING  | __main__:shutdown:43 - Application Shutdown Requested.
+2026-07-12 16:18:18.474 | SUCCESS  | __main__:shutdown:45 - Sigma AI Desktop Agent Closed Successfully.
+2026-07-12 16:18:18.474 | INFO     | __main__:main:90 - Execution Time : 0.02 seconds
+2026-07-12 16:32:27.282 | INFO     | src.core.logger:<module>:34 - Logger Initialized Successfully
+2026-07-12 16:32:27.422 | INFO     | __main__:initialize:21 - Initializing Application...
+2026-07-12 16:32:27.422 | INFO     | src.core.startup:startup:7 - Starting Sigma AI Desktop Agent...
+2026-07-12 16:32:27.431 | SUCCESS  | src.core.startup:startup:11 - Startup Completed Successfully
+2026-07-12 16:32:27.432 | INFO     | src.ai.providers:__init__:10 - AI Provider Initialized
+2026-07-12 16:32:27.433 | INFO     | src.ai.brain:__init__:17 - Sigma Brain Loaded Successfully
+2026-07-12 16:32:27.433 | INFO     | src.core.agent:__init__:17 - Sigma AI Desktop Agent Initializing...
+2026-07-12 16:32:27.433 | INFO     | src.ai.providers:set_provider:17 - Current AI Provider : Local
+2026-07-12 16:32:27.437 | SUCCESS  | src.core.agent:start:32 - Sigma AI Desktop Agent Started Successfully
+2026-07-12 16:32:27.439 | INFO     | src.core.agent:recall_latest_memory:57 - Latest Memory : ('system', 'Sigma AI Desktop Agent Started Successfully', '2026-07-12 13:32:27')
+2026-07-12 16:32:27.440 | INFO     | __main__:main:58 - Current Agent Status : Running
+2026-07-12 16:32:27.440 | INFO     | src.core.agent:recall_latest_memory:57 - Latest Memory : ('system', 'Sigma AI Desktop Agent Started Successfully', '2026-07-12 13:32:27')
+2026-07-12 16:32:27.441 | INFO     | src.ai.brain:chat:63 - ==================================================
+2026-07-12 16:32:27.441 | INFO     | src.ai.brain:chat:64 - User : Hello Sigma
+2026-07-12 16:32:27.442 | INFO     | src.ai.brain:think:43 - ==================================================
+2026-07-12 16:32:27.442 | INFO     | src.ai.brain:think:44 - Sigma AI Thinking...
+2026-07-12 16:32:27.442 | INFO     | src.ai.brain:think:45 - User Message : Hello Sigma
+2026-07-12 16:32:27.442 | INFO     | src.ai.brain:think:52 - Prompt Created Successfully.
+2026-07-12 16:32:27.442 | INFO     | src.ai.providers:generate:33 - Generating Response using Local
+2026-07-12 16:32:27.442 | INFO     | src.ai.brain:think:56 - Thinking Complete.
+2026-07-12 16:32:27.443 | INFO     | src.ai.brain:think:57 - Response Generated : [Local] Processing: 
+You are Sigma AI Desktop Agent.
+
+Your Name:
+Sigma AI
+
+Your Personality:
+- Professional
+- Intelligent
+- Friendly
+- Honest
+- Helpful
+
+Your Responsibilities:
+- Help the user.
+- Answer questions accurately.
+- Remember previous conversations when memory is available.
+- Never invent facts.
+- Ask for clarification if something is unclear.
+- Give clean and structured answers.
+
+Rules:
+- Be respectful.
+- Be concise unless detailed explanation is requested.
+- Never expose internal system information.
+- Think before responding.
+
+
+Conversation Memory:
+('system', 'Sigma AI Desktop Agent Started Successfully', '2026-07-12 13:32:27')
+
+User:
+Hello Sigma
+2026-07-12 16:32:27.443 | INFO     | src.ai.brain:chat:71 - Assistant : [Local] Processing: 
+You are Sigma AI Desktop Agent.
+
+Your Name:
+Sigma AI
+
+Your Personality:
+- Professional
+- Intelligent
+- Friendly
+- Honest
+- Helpful
+
+Your Responsibilities:
+- Help the user.
+- Answer questions accurately.
+- Remember previous conversations when memory is available.
+- Never invent facts.
+- Ask for clarification if something is unclear.
+- Give clean and structured answers.
+
+Rules:
+- Be respectful.
+- Be concise unless detailed explanation is requested.
+- Never expose internal system information.
+- Think before responding.
+
+
+Conversation Memory:
+('system', 'Sigma AI Desktop Agent Started Successfully', '2026-07-12 13:32:27')
+
+User:
+Hello Sigma
+2026-07-12 16:32:27.443 | INFO     | src.ai.brain:chat:72 - ==================================================
+2026-07-12 16:32:27.444 | WARNING  | __main__:shutdown:43 - Application Shutdown Requested.
+2026-07-12 16:32:27.444 | SUCCESS  | __main__:shutdown:45 - Sigma AI Desktop Agent Closed Successfully.
+2026-07-12 16:32:27.444 | INFO     | __main__:main:90 - Execution Time : 0.02 seconds
+2026-07-12 16:34:14.897 | INFO     | src.core.logger:<module>:34 - Logger Initialized Successfully
+2026-07-12 16:34:15.014 | INFO     | __main__:initialize:21 - Initializing Application...
+2026-07-12 16:34:15.016 | INFO     | src.core.startup:startup:7 - Starting Sigma AI Desktop Agent...
+2026-07-12 16:34:15.022 | SUCCESS  | src.core.startup:startup:11 - Startup Completed Successfully
+2026-07-12 16:34:15.024 | INFO     | src.ai.providers:__init__:10 - AI Provider Initialized
+2026-07-12 16:34:15.024 | INFO     | src.ai.brain:__init__:17 - Sigma Brain Loaded Successfully
+2026-07-12 16:34:15.024 | INFO     | src.core.agent:__init__:17 - Sigma AI Desktop Agent Initializing...
+2026-07-12 16:34:15.024 | INFO     | src.ai.providers:set_provider:17 - Current AI Provider : Local
+2026-07-12 16:34:15.029 | SUCCESS  | src.core.agent:start:32 - Sigma AI Desktop Agent Started Successfully
+2026-07-12 16:34:15.031 | INFO     | src.core.agent:recall_latest_memory:57 - Latest Memory : ('system', 'Sigma AI Desktop Agent Started Successfully', '2026-07-12 13:34:15')
+2026-07-12 16:34:15.031 | INFO     | __main__:main:58 - Current Agent Status : Running
+2026-07-12 16:34:15.032 | INFO     | src.core.agent:recall_latest_memory:57 - Latest Memory : ('system', 'Sigma AI Desktop Agent Started Successfully', '2026-07-12 13:34:15')
+2026-07-12 16:34:15.033 | INFO     | src.ai.brain:chat:63 - ==================================================
+2026-07-12 16:34:15.033 | INFO     | src.ai.brain:chat:64 - User : Hello Sigma
+2026-07-12 16:34:15.033 | INFO     | src.ai.brain:think:43 - ==================================================
+2026-07-12 16:34:15.033 | INFO     | src.ai.brain:think:44 - Sigma AI Thinking...
+2026-07-12 16:34:15.034 | INFO     | src.ai.brain:think:45 - User Message : Hello Sigma
+2026-07-12 16:34:15.034 | INFO     | src.ai.brain:think:52 - Prompt Created Successfully.
+2026-07-12 16:34:15.034 | INFO     | src.ai.providers:generate:33 - Generating Response using Local
+2026-07-12 16:34:15.034 | INFO     | src.ai.brain:think:56 - Thinking Complete.
+2026-07-12 16:34:15.034 | INFO     | src.ai.brain:think:57 - Response Generated : [Local] Processing: 
+You are Sigma AI Desktop Agent.
+
+Your Name:
+Sigma AI
+
+Your Personality:
+- Professional
+- Intelligent
+- Friendly
+- Honest
+- Helpful
+
+Your Responsibilities:
+- Help the user.
+- Answer questions accurately.
+- Remember previous conversations when memory is available.
+- Never invent facts.
+- Ask for clarification if something is unclear.
+- Give clean and structured answers.
+
+Rules:
+- Be respectful.
+- Be concise unless detailed explanation is requested.
+- Never expose internal system information.
+- Think before responding.
+
+
+Conversation Memory:
+('system', 'Sigma AI Desktop Agent Started Successfully', '2026-07-12 13:34:15')
+
+User:
+Hello Sigma
+2026-07-12 16:34:15.035 | INFO     | src.ai.brain:chat:71 - Assistant : [Local] Processing: 
+You are Sigma AI Desktop Agent.
+
+Your Name:
+Sigma AI
+
+Your Personality:
+- Professional
+- Intelligent
+- Friendly
+- Honest
+- Helpful
+
+Your Responsibilities:
+- Help the user.
+- Answer questions accurately.
+- Remember previous conversations when memory is available.
+- Never invent facts.
+- Ask for clarification if something is unclear.
+- Give clean and structured answers.
+
+Rules:
+- Be respectful.
+- Be concise unless detailed explanation is requested.
+- Never expose internal system information.
+- Think before responding.
+
+
+Conversation Memory:
+('system', 'Sigma AI Desktop Agent Started Successfully', '2026-07-12 13:34:15')
+
+User:
+Hello Sigma
+2026-07-12 16:34:15.035 | INFO     | src.ai.brain:chat:72 - ==================================================
+2026-07-12 16:34:15.035 | WARNING  | __main__:shutdown:43 - Application Shutdown Requested.
+2026-07-12 16:34:15.035 | SUCCESS  | __main__:shutdown:45 - Sigma AI Desktop Agent Closed Successfully.
+2026-07-12 16:34:15.036 | INFO     | __main__:main:90 - Execution Time : 0.02 seconds
+2026-07-12 17:02:52.740 | INFO     | src.core.logger:<module>:34 - Logger Initialized Successfully
+2026-07-12 17:02:52.884 | INFO     | __main__:initialize:21 - Initializing Application...
+2026-07-12 17:02:52.884 | INFO     | src.core.startup:startup:7 - Starting Sigma AI Desktop Agent...
+2026-07-12 17:02:52.890 | SUCCESS  | src.core.startup:startup:11 - Startup Completed Successfully
+2026-07-12 17:02:52.893 | INFO     | src.ai.providers:__init__:10 - AI Provider Initialized
+2026-07-12 17:02:52.894 | INFO     | src.ai.brain:__init__:17 - Sigma Brain Loaded Successfully
+2026-07-12 17:02:52.894 | INFO     | src.tools.desktop:__init__:31 - Desktop Controller Loaded Successfully
+2026-07-12 17:02:52.894 | INFO     | src.core.agent:__init__:17 - Sigma AI Desktop Agent Initializing...
+2026-07-12 17:02:52.894 | INFO     | src.ai.providers:set_provider:17 - Current AI Provider : Local
+2026-07-12 17:02:52.899 | SUCCESS  | src.core.agent:start:32 - Sigma AI Desktop Agent Started Successfully
+2026-07-12 17:02:52.901 | INFO     | src.core.agent:recall_latest_memory:57 - Latest Memory : ('system', 'Sigma AI Desktop Agent Started Successfully', '2026-07-12 14:02:52')
+2026-07-12 17:02:52.901 | INFO     | __main__:main:58 - Current Agent Status : Running
+2026-07-12 17:02:52.902 | INFO     | src.core.agent:recall_latest_memory:57 - Latest Memory : ('system', 'Sigma AI Desktop Agent Started Successfully', '2026-07-12 14:02:52')
+2026-07-12 17:02:52.903 | INFO     | src.ai.brain:chat:63 - ==================================================
+2026-07-12 17:02:52.904 | INFO     | src.ai.brain:chat:64 - User : Hello Sigma
+2026-07-12 17:02:52.904 | INFO     | src.ai.brain:think:43 - ==================================================
+2026-07-12 17:02:52.904 | INFO     | src.ai.brain:think:44 - Sigma AI Thinking...
+2026-07-12 17:02:52.904 | INFO     | src.ai.brain:think:45 - User Message : Hello Sigma
+2026-07-12 17:02:52.905 | INFO     | src.ai.brain:think:52 - Prompt Created Successfully.
+2026-07-12 17:02:52.905 | INFO     | src.ai.providers:generate:33 - Generating Response using Local
+2026-07-12 17:02:52.905 | INFO     | src.ai.brain:think:56 - Thinking Complete.
+2026-07-12 17:02:52.905 | INFO     | src.ai.brain:think:57 - Response Generated : [Local] Processing: 
+You are Sigma AI Desktop Agent.
+
+Your Name:
+Sigma AI
+
+Your Personality:
+- Professional
+- Intelligent
+- Friendly
+- Honest
+- Helpful
+
+Your Responsibilities:
+- Help the user.
+- Answer questions accurately.
+- Remember previous conversations when memory is available.
+- Never invent facts.
+- Ask for clarification if something is unclear.
+- Give clean and structured answers.
+
+Rules:
+- Be respectful.
+- Be concise unless detailed explanation is requested.
+- Never expose internal system information.
+- Think before responding.
+
+
+Conversation Memory:
+('system', 'Sigma AI Desktop Agent Started Successfully', '2026-07-12 14:02:52')
+
+User:
+Hello Sigma
+2026-07-12 17:02:52.905 | INFO     | src.ai.brain:chat:71 - Assistant : [Local] Processing: 
+You are Sigma AI Desktop Agent.
+
+Your Name:
+Sigma AI
+
+Your Personality:
+- Professional
+- Intelligent
+- Friendly
+- Honest
+- Helpful
+
+Your Responsibilities:
+- Help the user.
+- Answer questions accurately.
+- Remember previous conversations when memory is available.
+- Never invent facts.
+- Ask for clarification if something is unclear.
+- Give clean and structured answers.
+
+Rules:
+- Be respectful.
+- Be concise unless detailed explanation is requested.
+- Never expose internal system information.
+- Think before responding.
+
+
+Conversation Memory:
+('system', 'Sigma AI Desktop Agent Started Successfully', '2026-07-12 14:02:52')
+
+User:
+Hello Sigma
+2026-07-12 17:02:52.906 | INFO     | src.ai.brain:chat:72 - ==================================================
+2026-07-12 17:02:52.906 | WARNING  | __main__:shutdown:43 - Application Shutdown Requested.
+2026-07-12 17:02:52.906 | SUCCESS  | __main__:shutdown:45 - Sigma AI Desktop Agent Closed Successfully.
+2026-07-12 17:02:52.906 | INFO     | __main__:main:90 - Execution Time : 0.02 seconds
+2026-07-12 17:13:40.175 | INFO     | src.core.logger:<module>:34 - Logger Initialized Successfully
+2026-07-12 17:13:40.298 | INFO     | __main__:initialize:21 - Initializing Application...
+2026-07-12 17:13:40.300 | INFO     | src.core.startup:startup:7 - Starting Sigma AI Desktop Agent...
+2026-07-12 17:13:40.306 | SUCCESS  | src.core.startup:startup:11 - Startup Completed Successfully
+2026-07-12 17:13:40.308 | INFO     | src.ai.providers:__init__:10 - AI Provider Initialized
+2026-07-12 17:13:40.309 | INFO     | src.ai.brain:__init__:17 - Sigma Brain Loaded Successfully
+2026-07-12 17:13:40.309 | INFO     | src.ai.intent:__init__:16 - Sigma Intent Engine Loaded Successfully
+2026-07-12 17:13:40.309 | INFO     | src.tools.desktop:__init__:31 - Desktop Controller Loaded Successfully
+2026-07-12 17:13:40.310 | INFO     | src.core.agent:__init__:19 - ============================================================
+2026-07-12 17:13:40.310 | INFO     | src.core.agent:__init__:20 - Sigma AI Desktop Agent Initializing...
+2026-07-12 17:13:40.310 | INFO     | src.core.agent:__init__:21 - ============================================================
+2026-07-12 17:13:40.310 | INFO     | src.ai.providers:set_provider:17 - Current AI Provider : Local
+2026-07-12 17:13:40.315 | SUCCESS  | src.core.agent:start:36 - Sigma AI Desktop Agent Started Successfully
+2026-07-12 17:13:40.317 | INFO     | src.core.agent:recall_latest_memory:64 - Latest Memory : ('system', 'Sigma AI Desktop Agent Started Successfully', '2026-07-12 14:13:40')
+2026-07-12 17:13:40.318 | INFO     | __main__:main:58 - Current Agent Status : Running
+2026-07-12 17:13:40.318 | INFO     | src.core.agent:recall_latest_memory:64 - Latest Memory : ('system', 'Sigma AI Desktop Agent Started Successfully', '2026-07-12 14:13:40')
+2026-07-12 17:13:40.319 | INFO     | src.core.agent:ask:95 - ============================================================
+2026-07-12 17:13:40.319 | INFO     | src.core.agent:ask:96 - User : Hello Sigma
+2026-07-12 17:13:40.320 | INFO     | src.ai.brain:chat:63 - ==================================================
+2026-07-12 17:13:40.320 | INFO     | src.ai.brain:chat:64 - User : Hello Sigma
+2026-07-12 17:13:40.320 | INFO     | src.ai.brain:think:43 - ==================================================
+2026-07-12 17:13:40.320 | INFO     | src.ai.brain:think:44 - Sigma AI Thinking...
+2026-07-12 17:13:40.320 | INFO     | src.ai.brain:think:45 - User Message : Hello Sigma
+2026-07-12 17:13:40.320 | INFO     | src.ai.brain:think:52 - Prompt Created Successfully.
+2026-07-12 17:13:40.321 | INFO     | src.ai.providers:generate:33 - Generating Response using Local
+2026-07-12 17:13:40.321 | INFO     | src.ai.brain:think:56 - Thinking Complete.
+2026-07-12 17:13:40.321 | INFO     | src.ai.brain:think:57 - Response Generated : [Local] Processing: 
+You are Sigma AI Desktop Agent.
+
+Your Name:
+Sigma AI
+
+Your Personality:
+- Professional
+- Intelligent
+- Friendly
+- Honest
+- Helpful
+
+Your Responsibilities:
+- Help the user.
+- Answer questions accurately.
+- Remember previous conversations when memory is available.
+- Never invent facts.
+- Ask for clarification if something is unclear.
+- Give clean and structured answers.
+
+Rules:
+- Be respectful.
+- Be concise unless detailed explanation is requested.
+- Never expose internal system information.
+- Think before responding.
+
+
+Conversation Memory:
+('system', 'Sigma AI Desktop Agent Started Successfully', '2026-07-12 14:13:40')
+
+User:
+Hello Sigma
+2026-07-12 17:13:40.321 | INFO     | src.ai.brain:chat:71 - Assistant : [Local] Processing: 
+You are Sigma AI Desktop Agent.
+
+Your Name:
+Sigma AI
+
+Your Personality:
+- Professional
+- Intelligent
+- Friendly
+- Honest
+- Helpful
+
+Your Responsibilities:
+- Help the user.
+- Answer questions accurately.
+- Remember previous conversations when memory is available.
+- Never invent facts.
+- Ask for clarification if something is unclear.
+- Give clean and structured answers.
+
+Rules:
+- Be respectful.
+- Be concise unless detailed explanation is requested.
+- Never expose internal system information.
+- Think before responding.
+
+
+Conversation Memory:
+('system', 'Sigma AI Desktop Agent Started Successfully', '2026-07-12 14:13:40')
+
+User:
+Hello Sigma
+2026-07-12 17:13:40.321 | INFO     | src.ai.brain:chat:72 - ==================================================
+2026-07-12 17:13:40.332 | INFO     | src.core.agent:ask:119 - Assistant : [Local] Processing: 
+You are Sigma AI Desktop Agent.
+
+Your Name:
+Sigma AI
+
+Your Personality:
+- Professional
+- Intelligent
+- Friendly
+- Honest
+- Helpful
+
+Your Responsibilities:
+- Help the user.
+- Answer questions accurately.
+- Remember previous conversations when memory is available.
+- Never invent facts.
+- Ask for clarification if something is unclear.
+- Give clean and structured answers.
+
+Rules:
+- Be respectful.
+- Be concise unless detailed explanation is requested.
+- Never expose internal system information.
+- Think before responding.
+
+
+Conversation Memory:
+('system', 'Sigma AI Desktop Agent Started Successfully', '2026-07-12 14:13:40')
+
+User:
+Hello Sigma
+2026-07-12 17:13:40.333 | WARNING  | __main__:shutdown:43 - Application Shutdown Requested.
+2026-07-12 17:13:40.333 | SUCCESS  | __main__:shutdown:45 - Sigma AI Desktop Agent Closed Successfully.
+2026-07-12 17:13:40.333 | INFO     | __main__:main:90 - Execution Time : 0.03 seconds

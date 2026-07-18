@@ -1,0 +1,14 @@
+openai
+python-dotenv
+requests
+pydantic
+rich
+typer
+psutil
+pyautogui
+pillow
+opencv-python
+mss
+pyperclip
+watchdog
+loguru
