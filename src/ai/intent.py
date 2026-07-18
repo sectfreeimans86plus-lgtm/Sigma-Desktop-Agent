@@ -1,492 +1,504 @@
 """
 =========================================
 Sigma AI - Intent Engine
-Version : 3.0 (Part 1A)
+Version : 3.1
 =========================================
 """
 
-from typing import Dict, Optional
+import re
+import unicodedata
+from typing import Any, Callable, Dict, Final, List, Optional
+
 from src.core.logger import logger
+
+IntentResult = Dict[str, Any]
+Detector = Callable[[str], Optional[IntentResult]]
 
 
 class IntentEngine:
     """
-    Sigma Intent Detection Engine
+    Sigma Intent Detection Engine.
+
+    Converts natural-language user input (English and Roman Urdu) into
+    structured intent payloads for SigmaAgent and DesktopController.
     """
 
-    def __init__(self):
+    ENGINE_NAME: Final[str] = "Sigma Intent Engine"
+    ENGINE_VERSION: Final[str] = "3.1"
 
-        self.name = "Sigma Intent Engine"
+    _URL_PATTERN = re.compile(
+        r"(?:https?://)?(?:www\.)?"
+        r"[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?"
+        r"(?:\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)+"
+        r"(?:/[^\s]*)?",
+        re.IGNORECASE,
+    )
+
+    _SYSTEM_CONTEXT_WORDS = frozenset(
+        {
+            "system",
+            "computer",
+            "pc",
+            "laptop",
+            "machine",
+            "windows",
+        }
+    )
+
+    def __init__(self) -> None:
+        self.name = self.ENGINE_NAME
+
+        self.open_keywords = self._sort_keywords(
+            [
+                "open up",
+                "open",
+                "launch",
+                "start",
+                "run",
+                "execute",
+                "khol do",
+                "chala do",
+                "start karo",
+                "run karo",
+                "khol",
+                "kholo",
+                "chalao",
+            ]
+        )
+
+        self.close_keywords = self._sort_keywords(
+            [
+                "close down",
+                "close",
+                "exit",
+                "quit",
+                "terminate",
+                "kill",
+                "stop",
+                "band kar do",
+                "band karo",
+                "close karo",
+                "exit karo",
+                "quit karo",
+            ]
+        )
+
+        self.shutdown_keywords = self._sort_keywords(
+            [
+                "shut down",
+                "shutdown",
+                "power off",
+                "turn off",
+                "system shutdown",
+                "computer shutdown",
+                "pc shutdown",
+                "laptop shutdown",
+                "system band karo",
+            ]
+        )
+
+        self.restart_keywords = self._sort_keywords(
+            [
+                "re boot",
+                "reboot",
+                "restart",
+                "system restart",
+                "computer restart",
+                "pc restart",
+                "restart karo",
+                "reboot karo",
+            ]
+        )
+
+        self.search_keywords = self._sort_keywords(
+            [
+                "search google for",
+                "google search for",
+                "search for",
+                "look up",
+                "lookup",
+                "find on google",
+                "search on google",
+                "google search",
+                "search",
+                "dhundho",
+                "dhundo",
+                "talash karo",
+            ]
+        )
+
+        self.website_keywords = self._sort_keywords(
+            [
+                "navigate to",
+                "go to",
+                "visit",
+                "browse",
+                "open website",
+                "open site",
+                "open web",
+                "website kholo",
+                "site kholo",
+                "web kholo",
+                "web page",
+                "webpage",
+                "website",
+                "site",
+            ]
+        )
+
+        self.folder_keywords = self._sort_keywords(
+            [
+                "open folder",
+                "folder open karo",
+                "folder kholo",
+                "directory kholo",
+                "folder",
+                "directory",
+            ]
+        )
+
+        self.file_keywords = self._sort_keywords(
+            [
+                "open file",
+                "text file",
+                "file kholo",
+                "document kholo",
+                "pdf kholo",
+                "word kholo",
+                "excel kholo",
+                "powerpoint",
+                "document",
+                "pdf",
+                "excel",
+                "word",
+                "file",
+            ]
+        )
+
+        self.application_map: Dict[str, str] = {
+            "google chrome": "chrome",
+            "microsoft edge": "edge",
+            "visual studio code": "vscode",
+            "file explorer": "explorer",
+            "command prompt": "cmd",
+            "notepad++": "notepad",
+            "vs code": "vscode",
+            "mspaint": "paint",
+            "browser": "chrome",
+            "chrome": "chrome",
+            "edge": "edge",
+            "firefox": "firefox",
+            "notepad": "notepad",
+            "vscode": "vscode",
+            "calculator": "calculator",
+            "calc": "calculator",
+            "paint": "paint",
+            "cmd": "cmd",
+            "powershell": "powershell",
+            "explorer": "explorer",
+        }
+
+        self._application_aliases = self._sort_keywords(
+            list(self.application_map.keys())
+        )
+
+        self._detectors: List[Detector] = [
+            self.detect_shutdown,
+            self.detect_restart,
+            self.detect_close,
+            self.detect_search,
+            self.detect_website,
+            self.detect_file,
+            self.detect_folder,
+            self.detect_open,
+        ]
 
         logger.info(f"{self.name} initialized successfully.")
 
-        # -----------------------------
-        # Open Keywords
-        # -----------------------------
+    @staticmethod
+    def _sort_keywords(keywords: List[str]) -> List[str]:
+        unique = list(
+            dict.fromkeys(keyword.strip().lower() for keyword in keywords if keyword.strip())
+        )
+        return sorted(unique, key=len, reverse=True)
 
-        self.open_keywords = [
-            "open",
-            "launch",
-            "start",
-            "run",
-            "execute",
-            "open up",
-
-            # Roman Urdu
-            "khol",
-            "kholo",
-            "khol do",
-            "kholo",
-            "chalao",
-            "chala do",
-            "start karo",
-            "run karo",
-        ]
-
-        # -----------------------------
-        # Application Aliases
-        # -----------------------------
-
-        self.application_map = {
-
-            # Browsers
-            "chrome": "chrome",
-            "google chrome": "chrome",
-            "browser": "chrome",
-
-            "edge": "edge",
-            "microsoft edge": "edge",
-
-            "firefox": "firefox",
-
-            # Editors
-            "notepad": "notepad",
-            "notepad++": "notepad",
-
-            "vscode": "vscode",
-            "vs code": "vscode",
-            "visual studio code": "vscode",
-
-            # Windows Apps
-            "calculator": "calculator",
-            "calc": "calculator",
-
-            "paint": "paint",
-            "mspaint": "paint",
-
-            "cmd": "cmd",
-            "command prompt": "cmd",
-
-            "powershell": "powershell",
-
-            "explorer": "explorer",
-            "file explorer": "explorer",
-        }
-
-    # =====================================
-    # Normalize Text
-    # =====================================
+    @staticmethod
+    def _clamp_confidence(confidence: float) -> float:
+        return round(max(0.0, min(confidence, 1.0)), 2)
 
     def normalize_text(self, text: str) -> str:
-        return text.lower().strip()
+        if not text:
+            return ""
 
-    # =====================================
-    # Normalize Application Name
-    # =====================================
+        normalized = unicodedata.normalize("NFKC", str(text))
+        normalized = normalized.lower().strip()
+        normalized = re.sub(r"\s+", " ", normalized)
+        return normalized
 
     def normalize_application(self, app: str) -> Optional[str]:
-
-        app = self.normalize_text(app)
-
-        for alias, original in self.application_map.items():
-
-            if alias == app:
-                return original
-
-        return None
-    # =====================================
-    # Build Intent Response
-    # =====================================
+        if not app:
+            return None
+        return self.application_map.get(self.normalize_text(app))
 
     def build_response(
         self,
         intent: str,
         target: Optional[str] = None,
         confidence: float = 1.0,
-    ) -> Dict:
-
+    ) -> IntentResult:
         return {
             "intent": intent,
             "target": target,
-            "confidence": confidence,
+            "confidence": self._clamp_confidence(confidence),
         }
 
-    # =====================================
-    # Detect Open Intent
-    # =====================================
+    def _contains_keyword(self, message: str, keywords: List[str]) -> bool:
+        return any(self._contains_phrase(message, keyword) for keyword in keywords)
 
-    def detect_open(self, message: str) -> Optional[Dict]:
+    def _contains_phrase(self, message: str, phrase: str) -> bool:
+        if not message or not phrase:
+            return False
 
-        message = self.normalize_text(message)
+        if " " in phrase:
+            return phrase in message
 
-        if not any(keyword in message for keyword in self.open_keywords):
-            return None
+        pattern = rf"(?<![a-z0-9]){re.escape(phrase)}(?![a-z0-9])"
+        return re.search(pattern, message) is not None
 
-        for alias in self.application_map:
+    def _find_matched_keyword(self, message: str, keywords: List[str]) -> Optional[str]:
+        for keyword in keywords:
+            if self._contains_phrase(message, keyword):
+                return keyword
+        return None
 
-            if alias in message:
+    def _strip_keywords(
+        self,
+        message: str,
+        keyword_groups: List[List[str]],
+    ) -> str:
+        result = message
 
-                app = self.normalize_application(alias)
-
-                logger.info(
-                    f"Open intent detected -> {app}"
-                )
-
-                return self.build_response(
-                    intent="open",
-                    target=app,
-                    confidence=0.98,
-                )
-
-        logger.info("Generic open intent detected.")
-
-        return self.build_response(
-            intent="open",
-            target=None,
-            confidence=0.75,
-        )
-
-    # =====================================
-    # Engine Information
-    # =====================================
-
-    def info(self) -> Dict:
-
-        return {
-            "engine": self.name,
-            "version": "3.0",
-            "supported_intents": [
-                "open",
-            ],
-            "supported_applications": sorted(
-                list(
-                    set(
-                        self.application_map.values()
+        for keywords in keyword_groups:
+            for keyword in keywords:
+                if " " in keyword:
+                    result = result.replace(keyword, " ")
+                else:
+                    result = re.sub(
+                        rf"(?<![a-z0-9]){re.escape(keyword)}(?![a-z0-9])",
+                        " ",
+                        result,
                     )
-                )
-            ),
-        }
-    # =====================================
-    # Detect Close Intent
-    # =====================================
 
-    def detect_close(self, message: str) -> Optional[Dict]:
+        result = re.sub(r"\s+", " ", result).strip(" ,.;:-")
+        return result
 
-        message = self.normalize_text(message)
+    def _find_application_in_message(self, message: str) -> Optional[str]:
+        for alias in self._application_aliases:
+            if self._contains_phrase(message, alias):
+                return self.application_map[alias]
+        return None
 
-        if not any(keyword in message for keyword in self.close_keywords):
+    def _has_system_context(self, message: str) -> bool:
+        tokens = set(message.split())
+        return bool(tokens.intersection(self._SYSTEM_CONTEXT_WORDS))
+
+    def _extract_url(self, message: str) -> Optional[str]:
+        match = self._URL_PATTERN.search(message)
+        if not match:
             return None
 
-        for alias in self.application_map:
+        url = match.group(0).rstrip(".,);]")
+        if not url.startswith(("http://", "https://")):
+            url = f"https://{url}"
+        return url
 
-            if alias in message:
+    def _extract_target_after_keywords(
+        self,
+        message: str,
+        action_keywords: List[str],
+        type_keywords: Optional[List[str]] = None,
+    ) -> Optional[str]:
+        groups = [action_keywords]
+        if type_keywords:
+            groups.append(type_keywords)
 
-                app = self.normalize_application(alias)
+        target = self._strip_keywords(message, groups)
+        return target or None
 
-                logger.info(
-                    f"Close intent detected -> {app}"
-                )
+    def detect_open(self, message: str) -> Optional[IntentResult]:
+        message = self.normalize_text(message)
+        if not message:
+            return None
 
-                return self.build_response(
-                    intent="close",
-                    target=app,
-                    confidence=0.98,
-                )
+        if not self._contains_keyword(message, self.open_keywords):
+            return None
 
+        url = self._extract_url(message)
+        if url:
+            logger.info(f"Open intent detected (url) -> {url}")
+            return self.build_response("open", url, 0.96)
+
+        app = self._find_application_in_message(message)
+        if app:
+            logger.info(f"Open intent detected -> {app}")
+            return self.build_response("open", app, 0.98)
+
+        target = self._extract_target_after_keywords(message, self.open_keywords)
+        logger.info("Generic open intent detected.")
+        return self.build_response("open", target, 0.75 if target else 0.70)
+
+    def detect_close(self, message: str) -> Optional[IntentResult]:
+        message = self.normalize_text(message)
+        if not message:
+            return None
+
+        if not self._contains_keyword(message, self.close_keywords):
+            return None
+
+        app = self._find_application_in_message(message)
+        if app:
+            logger.info(f"Close intent detected -> {app}")
+            return self.build_response("close", app, 0.98)
+
+        target = self._extract_target_after_keywords(message, self.close_keywords)
         logger.info("Generic close intent detected.")
+        return self.build_response("close", target, 0.75 if target else 0.70)
 
-        return self.build_response(
-            intent="close",
-            target=None,
-            confidence=0.75,
+    def detect_shutdown(self, message: str) -> Optional[IntentResult]:
+        message = self.normalize_text(message)
+        if not message:
+            return None
+
+        matched = self._find_matched_keyword(message, self.shutdown_keywords)
+        if not matched:
+            return None
+
+        confidence = 0.99
+        if matched in {"turn off", "power off"} and not self._has_system_context(message):
+            confidence = 0.82
+
+        logger.info("Shutdown intent detected.")
+        return self.build_response("shutdown", None, confidence)
+
+    def detect_restart(self, message: str) -> Optional[IntentResult]:
+        message = self.normalize_text(message)
+        if not message:
+            return None
+
+        if not self._contains_keyword(message, self.restart_keywords):
+            return None
+
+        logger.info("Restart intent detected.")
+        return self.build_response("restart", None, 0.99)
+
+    def detect_search(self, message: str) -> Optional[IntentResult]:
+        message = self.normalize_text(message)
+        if not message:
+            return None
+
+        matched_keyword = self._find_matched_keyword(message, self.search_keywords)
+        if not matched_keyword:
+            return None
+
+        query = message.replace(matched_keyword, " ", 1)
+        query = re.sub(r"\s+", " ", query).strip(" ,.;:-")
+
+        if not query:
+            query = self._strip_keywords(
+                message,
+                [self.open_keywords, self.close_keywords],
+            )
+
+        logger.info(f"Search intent detected -> {query or None}")
+        return self.build_response("search", query or None, 0.95 if query else 0.80)
+
+    def detect_website(self, message: str) -> Optional[IntentResult]:
+        message = self.normalize_text(message)
+        if not message:
+            return None
+
+        url = self._extract_url(message)
+        has_website_keyword = self._contains_keyword(message, self.website_keywords)
+
+        if url:
+            confidence = 0.98 if has_website_keyword else 0.93
+            logger.info(f"Website intent detected -> {url}")
+            return self.build_response("website", url, confidence)
+
+        if not has_website_keyword:
+            return None
+
+        target = self._extract_target_after_keywords(message, self.website_keywords)
+        logger.info(f"Website intent detected -> {target or None}")
+        return self.build_response("website", target, 0.90 if target else 0.75)
+
+    def detect_folder(self, message: str) -> Optional[IntentResult]:
+        message = self.normalize_text(message)
+        if not message:
+            return None
+
+        if not self._contains_keyword(message, self.folder_keywords):
+            return None
+
+        folder_name = self._extract_target_after_keywords(
+            message,
+            self.open_keywords,
+            self.folder_keywords,
         )
 
-    # =====================================
-    # Detect Shutdown Intent
-    # =====================================
+        logger.info(f"Folder intent detected -> {folder_name or None}")
+        return self.build_response("folder", folder_name, 0.94 if folder_name else 0.78)
 
-    def detect_shutdown(self, message: str) -> Optional[Dict]:
-
+    def detect_file(self, message: str) -> Optional[IntentResult]:
         message = self.normalize_text(message)
+        if not message:
+            return None
 
-        if any(keyword in message for keyword in self.shutdown_keywords):
+        if not self._contains_keyword(message, self.file_keywords):
+            return None
 
-            logger.info("Shutdown intent detected.")
+        file_name = self._extract_target_after_keywords(
+            message,
+            self.open_keywords,
+            self.file_keywords,
+        )
 
-            return self.build_response(
-                intent="shutdown",
-                confidence=0.99,
-            )
+        logger.info(f"File intent detected -> {file_name or None}")
+        return self.build_response("file", file_name, 0.95 if file_name else 0.78)
 
-        return None
+    def detect(self, message: str) -> IntentResult:
+        normalized_message = self.normalize_text(message)
 
-    # =====================================
-    # Detect Restart Intent
-    # =====================================
+        if not normalized_message:
+            logger.info("Empty message received; defaulting to chat intent.")
+            return self.build_response("chat", None, 0.0)
 
-    def detect_restart(self, message: str) -> Optional[Dict]:
-
-        message = self.normalize_text(message)
-
-        if any(keyword in message for keyword in self.restart_keywords):
-
-            logger.info("Restart intent detected.")
-
-            return self.build_response(
-                intent="restart",
-                confidence=0.99,
-            )
-
-        return None
-
-    # =====================================
-    # Detect Search Intent
-    # =====================================
-
-    def detect_search(self, message: str) -> Optional[Dict]:
-
-        message = self.normalize_text(message)
-
-        for keyword in self.search_keywords:
-
-            if keyword in message:
-
-                query = message.replace(keyword, "").strip()
-
-                logger.info(
-                    f"Search intent detected -> {query}"
-                )
-
-                return self.build_response(
-                    intent="search",
-                    target=query if query else None,
-                    confidence=0.95,
-                )
-
-        return None
-
-    # =====================================
-    # Main Intent Detector
-    # =====================================
-
-    def detect(self, message: str) -> Dict:
-
-        detectors = [
-            self.detect_open,
-            self.detect_close,
-            self.detect_shutdown,
-            self.detect_restart,
-            self.detect_search,
-        ]
-
-        for detector in detectors:
-
-            result = detector(message)
-
+        for detector in self._detectors:
+            result = detector(normalized_message)
             if result is not None:
                 return result
 
         logger.info("Chat intent detected.")
+        return self.build_response("chat", normalized_message, 0.50)
 
-        return self.build_response(
-            intent="chat",
-            target=message,
-            confidence=0.50,
-        )
-    # -----------------------------
-        # Website Keywords
-        # -----------------------------
-
-        self.website_keywords = [
+    def info(self) -> Dict[str, Any]:
+        supported_applications = sorted(set(self.application_map.values()))
+        supported_intents = [
+            "open",
+            "close",
+            "shutdown",
+            "restart",
+            "search",
             "website",
-            "site",
-            "web",
-            "browser",
-
-            # Roman Urdu
-            "website kholo",
-            "site kholo",
-            "web kholo",
-            "browser kholo",
-        ]
-
-        # -----------------------------
-        # Folder Keywords
-        # -----------------------------
-
-        self.folder_keywords = [
             "folder",
-            "directory",
-
-            # Roman Urdu
-            "folder kholo",
-            "folder open karo",
-            "directory kholo",
-        ]
-
-        # -----------------------------
-        # File Keywords
-        # -----------------------------
-
-        self.file_keywords = [
             "file",
-            "document",
-            "pdf",
-            "word",
-            "excel",
-            "powerpoint",
-            "text file",
-
-            # Roman Urdu
-            "file kholo",
-            "document kholo",
-            "pdf kholo",
-            "word kholo",
-            "excel kholo",
+            "chat",
         ]
-    # =====================================
-    # Detect Website Intent
-    # =====================================
-
-    def detect_website(self, message: str) -> Optional[Dict]:
-
-        message = self.normalize_text(message)
-
-        if not any(keyword in message for keyword in self.website_keywords):
-            return None
-
-        words = message.split()
-
-        website = None
-
-        for word in words:
-
-            if "." in word:
-                website = word
-                break
-
-        logger.info(
-            f"Website intent detected -> {website}"
-        )
-
-        return self.build_response(
-            intent="website",
-            target=website,
-            confidence=0.95,
-        )
-
-    # =====================================
-    # Detect Folder Intent
-    # =====================================
-
-    def detect_folder(self, message: str) -> Optional[Dict]:
-
-        message = self.normalize_text(message)
-
-        if not any(keyword in message for keyword in self.folder_keywords):
-            return None
-
-        folder_name = message
-
-        for keyword in self.folder_keywords:
-            folder_name = folder_name.replace(keyword, "")
-
-        folder_name = folder_name.strip()
-
-        logger.info(
-            f"Folder intent detected -> {folder_name}"
-        )
-
-        return self.build_response(
-            intent="folder",
-            target=folder_name if folder_name else None,
-            confidence=0.94,
-        )
-    # =====================================
-    # Detect File Intent
-    # =====================================
-
-    def detect_file(self, message: str) -> Optional[Dict]:
-
-        message = self.normalize_text(message)
-
-        if not any(keyword in message for keyword in self.file_keywords):
-            return None
-
-        file_name = message
-
-        for keyword in self.file_keywords:
-            file_name = file_name.replace(keyword, "", 1)
-
-        file_name = file_name.strip()
-
-        logger.info(f"File intent detected -> {file_name}")
-
-        return self.build_response(
-            intent="file",
-            target=file_name if file_name else None,
-            confidence=0.95,
-        )
-
-    # =====================================
-    # Main Intent Dispatcher
-    # =====================================
-
-    def detect(self, message: str) -> Optional[Dict]:
-
-        message = self.normalize_text(message)
-
-        detectors = [
-            self.detect_open,
-            self.detect_close,
-            self.detect_shutdown,
-            self.detect_restart,
-            self.detect_search,
-            self.detect_website,
-            self.detect_folder,
-            self.detect_file,
-        ]
-
-        for detector in detectors:
-
-            result = detector(message)
-
-            if result is not None:
-                return result
-
-        return self.build_response(
-            intent="unknown",
-            target=None,
-            confidence=0.0,
-        )
-
-    # =====================================
-    # Engine Information
-    # =====================================
-
-    def info(self) -> Dict:
 
         return {
-            "name": "Sigma Intent Engine",
-            "version": "3.0",
-            "supported_intents": [
-                "open",
-                "close",
-                "shutdown",
-                "restart",
-                "search",
-                "website",
-                "folder",
-                "file",
-            ]
+            "engine": self.name,
+            "name": self.name,
+            "version": self.ENGINE_VERSION,
+            "supported_intents": supported_intents,
+            "supported_applications": supported_applications,
         }
